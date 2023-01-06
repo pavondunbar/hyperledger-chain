@@ -1,0 +1,39 @@
+---
+OrdererOrgs:
+  - Name: movo.cash
+    Domain: movo.cash
+    Specs:
+      - Hostname: orderer1
+        SANS:
+          - 172.31.3.157
+      - Hostname: orderer2
+        SANS:
+          - 172.31.3.157
+
+PeerOrgs:
+  - Name: org1.movo.cash
+    Domain: org1.movo.cash
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.org1.movo.cash
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.org1.movo.cash
+        SANS:
+          - 172.31.3.157
+      - Hostname: peer2
+        CommonName: peer2.org1.movo.cash
+        SANS:
+          - 172.31.3.157
+      - Hostname: peer3
+        CommonName: peer3.org1.movo.cash
+        SANS:
+          - 172.31.3.157
+      - Hostname: peer4
+        CommonName: peer4.org1.movo.cash
+        SANS:
+          - 172.31.3.157

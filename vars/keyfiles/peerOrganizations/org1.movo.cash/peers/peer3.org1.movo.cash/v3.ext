@@ -1,0 +1,4 @@
+keyUsage = critical,digitalSignature
+basicConstraints = critical,CA:FALSE
+subjectAltName=IP: 172.31.3.157,DNS:peer3.org1.movo.cash,DNS:peer3-org1-movo-cash,DNS:localhost,IP:127.0.0.1
+authorityKeyIdentifier = keyid,issuer

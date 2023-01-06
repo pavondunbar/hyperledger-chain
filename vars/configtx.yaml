@@ -1,0 +1,158 @@
+---
+Organizations:
+  - &movo-cash
+      Name: movo-cash
+      ID: movo-cash
+      MSPDir: keyfiles/ordererOrganizations/movo.cash/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('movo-cash.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('movo-cash.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('movo-cash.admin')"
+  - &org1-movo-cash
+      Name: org1-movo-cash
+      ID: org1-movo-cash
+      MSPDir: keyfiles/peerOrganizations/org1.movo.cash/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('org1-movo-cash.admin', 'org1-movo-cash.peer', 'org1-movo-cash.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('org1-movo-cash.admin', 'org1-movo-cash.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('org1-movo-cash.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('org1-movo-cash.peer')"
+
+      AnchorPeers:
+      - Host: 172.31.3.157
+        Port: 7001
+      - Host: 172.31.3.157
+        Port: 7002
+      - Host: 172.31.3.157
+        Port: 7003
+      - Host: 172.31.3.157
+        Port: 7004
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+
+  Addresses:
+  - 172.31.3.157:7009
+  - 172.31.3.157:7010
+  EtcdRaft:
+    Consenters:
+    - Host: 172.31.3.157
+      Port: 7009
+      ClientTLSCert: keyfiles/ordererOrganizations/movo.cash/orderers/orderer1.movo.cash/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/movo.cash/orderers/orderer1.movo.cash/tls/server.crt
+    - Host: 172.31.3.157
+      Port: 7010
+      ClientTLSCert: keyfiles/ordererOrganizations/movo.cash/orderers/orderer2.movo.cash/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/movo.cash/orderers/orderer2.movo.cash/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  OrgChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *org1-movo-cash
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *movo-cash
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - <<: *movo-cash
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+        - *org1-movo-cash

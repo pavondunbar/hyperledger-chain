@@ -1,0 +1,86 @@
+{
+  "Admin@movo.cash": {
+    "key": "Admin@movo.cash",
+    "org": "movo.cash",
+    "path": "/home/vars/keyfiles/ordererOrganizations/movo.cash/users/Admin@movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/movo.cash/users/Admin@movo.cash/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@org1.movo.cash": {
+    "key": "Admin@org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/users/Admin@org1.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/users/Admin@org1.movo.cash/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "movo.cash": {
+    "key": "movo.cash",
+    "org": "movo.cash",
+    "path": "/home/vars/keyfiles/ordererOrganizations/movo.cash/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/movo.cash/ca/priv_sk",
+    "type": "ca"
+  },
+  "movo.cash.tlsca": {
+    "key": "movo.cash",
+    "org": "movo.cash",
+    "path": "/home/vars/keyfiles/ordererOrganizations/movo.cash/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/movo.cash/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer1.movo.cash": {
+    "key": "orderer1.movo.cash",
+    "org": "movo.cash",
+    "path": "/home/vars/keyfiles/ordererOrganizations/movo.cash/orderers/orderer1.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/movo.cash/orderers/orderer1.movo.cash/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "orderer2.movo.cash": {
+    "key": "orderer2.movo.cash",
+    "org": "movo.cash",
+    "path": "/home/vars/keyfiles/ordererOrganizations/movo.cash/orderers/orderer2.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/movo.cash/orderers/orderer2.movo.cash/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "org1.movo.cash": {
+    "key": "org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/ca/priv_sk",
+    "type": "ca"
+  },
+  "org1.movo.cash.tlsca": {
+    "key": "org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "peer1.org1.movo.cash": {
+    "key": "peer1.org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/peers/peer1.org1.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/peers/peer1.org1.movo.cash/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.org1.movo.cash": {
+    "key": "peer2.org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/peers/peer2.org1.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/peers/peer2.org1.movo.cash/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer3.org1.movo.cash": {
+    "key": "peer3.org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/peers/peer3.org1.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/peers/peer3.org1.movo.cash/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer4.org1.movo.cash": {
+    "key": "peer4.org1.movo.cash",
+    "org": "org1.movo.cash",
+    "path": "/home/vars/keyfiles/peerOrganizations/org1.movo.cash/peers/peer4.org1.movo.cash/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/org1.movo.cash/peers/peer4.org1.movo.cash/msp/keystore/priv_sk",
+    "type": "peers"
+  }
+}
